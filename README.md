@@ -55,16 +55,57 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
 
+#### Step 1:
+Open Quartus II and select new project and choose the file location.
 
+#### Step 2:
+Module Declaration. Module should have the file name.
+#### Step 3:
+Input-Output Delecaration.
+
+#### Step 4:
+Use assign to define the functionality of logic circuits.
+
+#### Step 5:
+At the end give endmodule.
+
+#### Step 6:
+Run the program and choose RTL viewer to get RTL realization.
 
 ### PROGRAM 
-/*
+```verilog
+FOR ENCODER
+
+module encoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+output a,b,c;
+input d0,d1,d2,d3,d4,d5,d6,d7;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
+```
+```verilog
+FOR DECODER
+module decoder(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+output d0,d1,d2,d3,d4,d5,d6,d7;
+input a,b,c;
+assign d0=(~a & ~b & ~c);
+assign d1=(~a & ~b & c);
+assign d2=(~a & b & ~c);
+assign d3=(~a & b & c);
+assign d4=(a & ~b & ~c);
+assign d5=(a & ~b & c);
+assign d6=(a & b & ~c);
+assign d7=(a & b & c);
+endmodule
+
+```
+```
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: AKASH R
+RegisterNumber:  212222050005
+```
 
 
 
@@ -72,6 +113,11 @@ RegisterNumber:
 
 
 ### RTL LOGIC  
+#### FOR ENCODER
+![rtl enc](https://github.com/AkashRaja7/Experiment-08-Encoders-and-decoders-/assets/130548870/d716aeac-d383-4b5d-b911-51e265a3981c)
+
+#### FOR DECODER
+![rtl doc](https://github.com/AkashRaja7/Experiment-08-Encoders-and-decoders-/assets/130548870/47666804-1b27-4af5-80ce-a7bd200d3206)
 
 
 
@@ -79,18 +125,26 @@ RegisterNumber:
 
 
 
+### TIMING DIGRAMS 
 
-### TIMING DIGRAMS  
+#### FOR ENCODER
+![td enc](https://github.com/AkashRaja7/Experiment-08-Encoders-and-decoders-/assets/130548870/25c686a2-29d2-45cf-ad0f-6a38d8f4e667)
 
 
-
-
+#### FOR DECODER
+![td doc](https://github.com/AkashRaja7/Experiment-08-Encoders-and-decoders-/assets/130548870/3f006ec6-d2d2-4162-810c-8e860ecaa8ae)
 
 ### TRUTH TABLE 
 
+#### FOR ENCODER
+![ttenc](https://github.com/AkashRaja7/Experiment-08-Encoders-and-decoders-/assets/130548870/1cac392e-88f8-4760-a608-65e5b510973d)
+
+
+#### FOR DECODER
+![ttdoc](https://github.com/AkashRaja7/Experiment-08-Encoders-and-decoders-/assets/130548870/0ff007dd-de21-491a-97cf-9c9a03253469)
 
 
 
 
-
-### RESULTS 
+### RESULTS
++ 8 to 3 Encoder and 3 to 8 Decoder has been implemented by using verilog and its outputs are validated.
